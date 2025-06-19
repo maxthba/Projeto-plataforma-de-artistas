@@ -34,6 +34,7 @@ def cadastro_artista():
     artistas_cadas[cpf] = dados_artista
 
 def pesquisa():
+    t_pesquisas = ["nome", "profissão", "estilo", "cidade"]
     print("///////////////////////////////////")
     print("//     Digite como pesquisar     //")
     print("//             nome              //")
@@ -44,6 +45,10 @@ def pesquisa():
     pesquisa = input()
     limp_term()
     encontrados = {}
+    
+    while pesquisa not in t_pesquisas:
+        pesquisa = input("digite um tipo de pesquisa valido: ")
+        limp_term()
 
     if pesquisa == "nome":
         nome_busca = input("digite o nome: ")
@@ -88,8 +93,5 @@ def pesquisa():
                 encontrados[cpf] = dados_artista
                 for chave, valor in dados_artista.items():
                     print(f"{chave.capitalize()}: {valor}")
-    else:
-        limp_term()
-        pesquisa = input("digite uma opção valida: ")
 pesquisa()
 
