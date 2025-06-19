@@ -1,0 +1,3 @@
+artistas_cadas = {}
+def
+
