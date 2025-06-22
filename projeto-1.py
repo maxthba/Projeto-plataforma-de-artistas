@@ -118,3 +118,5 @@ while p_ativo == True:
         cadastro_artista()
     elif opt == "pesquisa":
         pesquisa()
+        input('\n\t<< Tecle Enter para continuar >>')
+        os.system('cls' if os.name == 'nt' else 'clear')
