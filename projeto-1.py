@@ -93,5 +93,5 @@ def pesquisa():
                 encontrados[cpf] = dados_artista
                 for chave, valor in dados_artista.items():
                     print(f"{chave.capitalize()}: {valor}")
+cadastro_artista()
 pesquisa()
-
