@@ -1,5 +1,6 @@
 import os
 artistas_cadas = {}
+p_ativo = True
 
 def limp_term():
     if os.name == "nt":
@@ -8,7 +9,9 @@ def limp_term():
         _= os.system("clear")
 
 def cadastro_artista():
-    nome= input("digite seu nome completo: ")
+    nome= input("digite seu nome : ")
+    limp_term()
+    snome= input("digite seu sobrenome : ")
     limp_term()
     prof = input("digite seu ramo na arte: ")
     limp_term()
@@ -30,7 +33,7 @@ def cadastro_artista():
     prof = str(prof).lower()
     est = str(est).lower()
     cid = str(cid).lower()
-    dados_artista = {"nome": nome, "profissão":prof, "estilo":est,"cidade":cid}
+    dados_artista = {"nome": nome, "sobrenome": snome, "profissão":prof, "estilo":est,"cidade":cid}
     artistas_cadas[cpf] = dados_artista
 
 def pesquisa():
@@ -51,7 +54,7 @@ def pesquisa():
         limp_term()
 
     if pesquisa == "nome":
-        nome_busca = input("digite o nome: ")
+        nome_busca = input("digite o primeiro nome: ")
         nome_busca = nome_busca.lower()
         limp_term()
         for cpf, dados_artista in artistas_cadas.items():
@@ -93,5 +96,25 @@ def pesquisa():
                 encontrados[cpf] = dados_artista
                 for chave, valor in dados_artista.items():
                     print(f"{chave.capitalize()}: {valor}")
-cadastro_artista()
-pesquisa()
+while p_ativo == True:
+    options = ["cadastro", "pesquisa"]
+    print("///////////////////////////////////")
+    print("//            Menu:              //")
+    print("//           cadastro            //")
+    print("//           pesquisa            //")
+    print("///////////////////////////////////")
+    opt = input("")
+    limp_term()
+    while opt not in options:
+        print("Digite uma opção valida")
+        print("///////////////////////////////////")
+        print("//            Menu:              //")
+        print("//           cadastro            //")
+        print("//           pesquisa            //")
+        print("///////////////////////////////////")
+        opt = input("")
+        limp_term()
+    if opt == "cadastro":
+        cadastro_artista()
+    elif opt == "pesquisa":
+        pesquisa()
